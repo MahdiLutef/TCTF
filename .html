@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Caddisfly9802</title>
+    <style>
+      :root {
+        --bg: #050807;
+        --bg-2: #0e1714;
+        --panel: rgba(11, 18, 16, 0.82);
+        --line: rgba(139, 173, 159, 0.25);
+        --text: #edf2ee;
+        --muted: rgba(237, 242, 238, 0.62);
+        --glow: rgba(171, 211, 190, 0.32);
+        --shadow: rgba(0, 0, 0, 0.72);
+      }
+
+      * { box-sizing: border-box; }
+
+      html, body {
+        margin: 0;
+        min-height: 100%;
+        background: var(--bg);
+        color: var(--text);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        background-image:
+          radial-gradient(circle at 50% 50%, rgba(47, 74, 64, 0.2), transparent 30%),
+          radial-gradient(circle at 18% 28%, rgba(98, 125, 110, 0.14), transparent 25%),
+          radial-gradient(circle at 80% 20%, rgba(112, 145, 128, 0.12), transparent 30%),
+          linear-gradient(180deg, rgba(6, 10, 9, 0.9), rgba(5, 8, 7, 0.98)),
+          url('https://www.ento.csiro.au/education/Assets/images_insects/Stenopsychodes_species.gif');
+        background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+        background-size: cover, cover, cover, cover, cover;
+        background-position: center;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgba(3, 7, 6, 0.42), rgba(3, 7, 6, 0.68)),
+          repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,0.02),
+            rgba(255,255,255,0.02) 1px,
+            transparent 1px,
+            transparent 3px
+          );
+        mix-blend-mode: screen;
+        pointer-events: none;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at center, transparent 45%, rgba(0, 0, 0, 0.58) 100%);
+        pointer-events: none;
+      }
+
+      .frame {
+        position: relative;
+        z-index: 1;
+        width: min(760px, 82vw);
+        padding: 2.5rem 2rem 2.2rem;
+        border: 1px solid var(--line);
+        background: rgba(10, 15, 13, 0.72);
+        box-shadow:
+          0 0 0 1px rgba(255, 255, 255, 0.02),
+          0 26px 70px var(--shadow),
+          0 0 24px rgba(133, 171, 152, 0.08);
+        text-align: center;
+        backdrop-filter: blur(2px);
+      }
+
+      .frame::before {
+        content: "";
+        position: absolute;
+        inset: 12px;
+        border: 1px solid rgba(170, 195, 182, 0.08);
+        pointer-events: none;
+      }
+
+      .label {
+        margin: 0;
+        font-size: 0.72rem;
+        letter-spacing: 0.48rem;
+        text-transform: uppercase;
+        color: rgba(237, 242, 238, 0.72);
+      }
+
+      h1 {
+        margin: 1rem 0 0.7rem;
+        font-size: clamp(2.8rem, 7vw, 6.5rem);
+        line-height: 0.92;
+        letter-spacing: -0.08em;
+        font-weight: 700;
+        text-shadow: 0 0 16px rgba(184, 212, 196, 0.1);
+      }
+
+      .tag {
+        margin: 0;
+        color: rgba(237, 242, 238, 0.56);
+        font-size: 0.72rem;
+        letter-spacing: 0.32rem;
+        text-transform: uppercase;
+      }
+
+      .note {
+        width: min(560px, 90%);
+        margin: 1.5rem auto 0;
+        color: rgba(237, 242, 238, 0.72);
+        font-size: 0.96rem;
+        line-height: 1.8;
+        font-style: italic;
+      }
+
+      .trace {
+        position: fixed;
+        right: 1.2rem;
+        bottom: 1rem;
+        z-index: 2;
+        opacity: 0.18;
+        transition: opacity 0.25s ease, transform 0.25s ease, text-shadow 0.25s ease;
+      }
+
+      .trace a {
+        color: rgba(220, 235, 225, 0.74);
+        text-decoration: none;
+        font-size: 0.68rem;
+        letter-spacing: 0.36rem;
+        text-transform: lowercase;
+        font-weight: 600;
+        display: inline-block;
+        transform: scale(0.98);
+      }
+
+      .trace:hover,
+      .trace:focus-within {
+        opacity: 1;
+        transform: translateY(-1px);
+      }
+
+      .trace a:hover,
+      .trace a:focus {
+        text-shadow: 0 0 12px rgba(170, 211, 188, 0.85);
+      }
+
+      @media (max-width: 560px) {
+        .frame {
+          padding: 2.1rem 1.3rem 1.8rem;
+        }
+
+        .label,
+        .tag {
+          letter-spacing: 0.2rem;
+        }
+
+        .trace {
+          right: 0.8rem;
+          bottom: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="frame" aria-label="Caddisfly9802 landing page">
+      <p class="label">case file</p>
+      <h1>Caddisfly9802</h1>
+      <p class="tag">field note / specimen trace</p>
+      <p class="note">
+        Was it really a mystery or a matter of perspective?  
+      </p>
+    </main>
+
+    <div class="trace" aria-label="Hidden link">
+      <a href="https://discord.gg/zD9cVMfgWx" target="_blank" rel="noreferrer">caddisfly9802</a>
+    </div>
+  </body>
+</html>
